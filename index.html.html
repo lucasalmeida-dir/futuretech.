@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FutureTech - Sua loja de tecnologia com os melhores preços. Smartphones, notebooks, smartwatches, TVs, consoles e muito mais. Parcelamento em até 12x sem juros e entrega rápida para todo o Brasil.">
+    <meta name="keywords" content="techstore, tecnologia, smartphone, notebook, smartwatch, tv, playstation, fone de ouvido, eletrônicos, promoções, Samsung, LG, Sony">
+    <meta name="author" content="FutureTech">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FutureTech - Tecnologia com os Melhores Preços">
+    <meta property="og:description" content="Smartphones, notebooks, smartwatches, TVs e consoles com desconto. Aproveite!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://futuretech.com.br">
+    <meta property="og:image" content="https://futuretech.com.br/og-image.jpg">
+    <link rel="canonical" href="https://futuretech.com.br">
+    <title>FutureTech | Tecnologia com os Melhores Preços do Brasil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --tech-primary: #4F46E5;
+            --tech-primary-dark: #3730A3;
+            --tech-accent: #F59E0B;
+            --tech-accent-dark: #D97706;
+            --tech-success: #10B981;
+            --tech-danger: #EF4444;
+            --tech-dark: #1E293B;
+            --tech-gray: #64748B;
+            --tech-light: #F8FAFC;
+            --tech-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --tech-card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+            --tech-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #F1F5F9;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--tech-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            padding: 0.75rem 0;
+            transition: var(--tech-transition);
+            z-index: 1030;
+        }
+        .navbar.sticky-top {
+            position: sticky;
+            top: 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--tech-primary) !important;
+            letter-spacing: -0.5px;
+            transition: var(--tech-transition);
+        }
+        .navbar-brand:hover {
+            color: var(--tech-primary-dark) !important;
+            transform: scale(1.03);
+        }
+        .navbar-brand .brand-icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--tech-gray) !important;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: var(--tech-transition);
+            border-radius: 8px;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--tech-primary) !important;
+            background: rgba(79, 70, 229, 0.06);
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--tech-primary);
+            border-radius: 4px;
+        }
+        .btn-login-nav {
+            background: var(--tech-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 0.5rem 1.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--tech-transition);
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+        }
+        .btn-login-nav:hover {
+            background: var(--tech-primary-dark);
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.45);
+            transform: translateY(-1px);
+            color: #fff;
+        }
+        .cart-badge {
+            background: var(--tech-accent);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.7rem;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: -8px;
+            left: -4px;
+            animation: pulse-badge 2s ease-in-out infinite;
+            transition: var(--tech-transition);
+            user-select: none;
+        }
+        @keyframes pulse-badge {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        /* ========== HERO ========== */
+        .hero-section {
+            background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 35%, #312e81 70%, #1e1b4b 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0 6rem;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -150px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #FDE68A;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            color: #CBD5E1;
+            font-size: 1.15rem;
+            max-width: 550px;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-hero {
+            background: var(--tech-accent);
+            color: #1E293B;
+            border: none;
+            padding: 0.85rem 2.5rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border-radius: 50px;
+            transition: var(--tech-transition);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.45);
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.3px;
+        }
+        .btn-hero:hover {
+            background: var(--tech-accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.6);
+            color: #1E293B;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #FDE68A;
+            display: block;
+        }
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== SECTION TITLES ========== */
+        .section-title {
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--tech-dark);
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--tech-primary);
+            border-radius: 4px;
+        }
+        .section-subtitle {
+            color: var(--tech-gray);
+            font-size: 1rem;
+            max-width: 600px;
+        }
+
+        /* ========== PRODUCT CARDS ========== */
+        .product-card {
+            background: #fff;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--tech-card-shadow);
+            transition: var(--tech-transition);
+            height: 100%;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--tech-card-shadow-hover);
+        }
+        .product-card .img-wrapper {
+            overflow: hidden;
+            background: #F8FAFC;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .product-card .img-wrapper img {
+            max-height: 220px;
+            object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+        }
+        .product-card:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 2;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .badge-best-seller {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        .badge-discount {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+        .badge-new {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        .badge-offer {
+            background: #FFEDD5;
+            color: #9A3412;
+        }
+        .product-card .card-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card .card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--tech-dark);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.7em;
+        }
+        .product-rating {
+            font-size: 0.85rem;
+            color: #F59E0B;
+            margin-bottom: 0.3rem;
+        }
+        .product-rating .rating-count {
+            color: var(--tech-gray);
+            font-size: 0.75rem;
+            margin-left: 4px;
+        }
+        .product-price-old {
+            font-size: 0.8rem;
+            color: #94A3B8;
+            text-decoration: line-through;
+            margin-bottom: 0;
+        }
+        .product-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--tech-dark);
+            margin-bottom: 0.15rem;
+            letter-spacing: -0.5px;
+        }
+        .product-installments {
+            font-size: 0.8rem;
+            color: var(--tech-success);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        .product-delivery {
+            font-size: 0.75rem;
+            color: var(--tech-gray);
+            margin-bottom: 1rem;
+        }
+        .product-delivery .free-shipping {
+            color: var(--tech-success);
+            font-weight: 600;
+        }
+        .btn-add-cart {
+            background: var(--tech-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 0.65rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--tech-transition);
+            width: 100%;
+            margin-top: auto;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+            letter-spacing: 0.3px;
+        }
+        .btn-add-cart:hover {
+            background: var(--tech-primary-dark);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        .btn-add-cart:active {
+            transform: scale(0.97);
+        }
+
+        /* ========== CART OFFCANVAS ========== */
+        .cart-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #F8FAFC;
+        }
+        .cart-item {
+            border-bottom: 1px solid #E2E8F0;
+            padding: 0.8rem 0;
+            transition: var(--tech-transition);
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-empty {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--tech-gray);
+        }
+        .btn-remove-item {
+            background: none;
+            border: none;
+            color: var(--tech-danger);
+            font-size: 1.2rem;
+            padding: 0;
+            line-height: 1;
+            transition: var(--tech-transition);
+            cursor: pointer;
+        }
+        .btn-remove-item:hover {
+            color: #B91C1C;
+            transform: scale(1.1);
+        }
+
+        /* ========== TRUST STRIP ========== */
+        .trust-strip {
+            background: #fff;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 1.5rem 0;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+            color: var(--tech-dark);
+            font-size: 0.9rem;
+            justify-content: center;
+        }
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--tech-success);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-section {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: var(--tech-card-shadow);
+            padding: 2.5rem;
+        }
+        .contact-section .form-control {
+            border-radius: 10px;
+            border: 2px solid #E2E8F0;
+            padding: 0.7rem 1rem;
+            transition: var(--tech-transition);
+            font-size: 0.95rem;
+        }
+        .contact-section .form-control:focus {
+            border-color: var(--tech-primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
+        }
+        .contact-section .form-label {
+            font-weight: 600;
+            color: var(--tech-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-submit-contact {
+            background: var(--tech-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 2.5rem;
+            font-weight: 600;
+            transition: var(--tech-transition);
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+        }
+        .btn-submit-contact:hover {
+            background: var(--tech-primary-dark);
+            box-shadow: 0 6px 24px rgba(79, 70, 229, 0.45);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        /* ========== FAQ ========== */
+        .faq-section .accordion-button {
+            font-weight: 600;
+            color: var(--tech-dark);
+            border-radius: 12px !important;
+            padding: 1.1rem 1.5rem;
+            transition: var(--tech-transition);
+            background: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        }
+        .faq-section .accordion-button:not(.collapsed) {
+            background: #EEF2FF;
+            color: var(--tech-primary);
+            box-shadow: none;
+        }
+        .faq-section .accordion-button:focus {
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+            border-color: transparent;
+        }
+        .faq-section .accordion-item {
+            border: none;
+            margin-bottom: 0.75rem;
+            border-radius: 12px !important;
+            overflow: hidden;
+            background: transparent;
+        }
+        .faq-section .accordion-body {
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+            padding: 1rem 1.5rem 1.5rem;
+            color: var(--tech-gray);
+            line-height: 1.7;
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: var(--tech-dark);
+            color: #CBD5E1;
+            padding: 3rem 0 1.5rem;
+        }
+        .site-footer h5 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .site-footer a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--tech-transition);
+            font-size: 0.9rem;
+        }
+        .site-footer a:hover {
+            color: #FDE68A;
+            text-decoration: underline;
+        }
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748B;
+        }
+        .payment-icons span {
+            font-size: 1.4rem;
+            margin-right: 0.5rem;
+            opacity: 0.7;
+            transition: var(--tech-transition);
+        }
+        .payment-icons span:hover {
+            opacity: 1;
+        }
+
+        /* ========== OFFCANVAS GENERIC ========== */
+        .offcanvas {
+            border-radius: 20px 0 0 20px;
+        }
+        .offcanvas-header {
+            padding: 1.5rem 1.5rem 1rem;
+        }
+        .offcanvas-body {
+            padding: 1.5rem;
+        }
+        .offcanvas .form-control {
+            border-radius: 10px;
+            border: 2px solid #E2E8F0;
+            padding: 0.65rem 1rem;
+            transition: var(--tech-transition);
+        }
+        .offcanvas .form-control:focus {
+            border-color: var(--tech-primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
+        }
+        .offcanvas .btn-primary {
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+            transition: var(--tech-transition);
+        }
+        .offcanvas .btn-primary:hover {
+            box-shadow: 0 6px 24px rgba(79, 70, 229, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ========== TOAST ========== */
+        .toast-custom {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+            background: #fff;
+        }
+        .toast-custom .toast-header {
+            background: #D1FAE5;
+            border-bottom: none;
+            border-radius: 16px 16px 0 0;
+            padding: 0.8rem 1.2rem;
+            font-weight: 600;
+            color: #065F46;
+        }
+        .toast-custom .toast-body {
+            padding: 1rem 1.2rem;
+            font-weight: 500;
+            color: var(--tech-dark);
+        }
+
+        /* ========== MODAL ========== */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        .modal-body {
+            padding: 2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .modal-footer {
+            border-top: none;
+            justify-content: center;
+            padding: 0 2rem 1.5rem;
+        }
+        .modal-footer .btn {
+            border-radius: 50px;
+            padding: 0.65rem 2rem;
+            font-weight: 600;
+        }
+
+        /* ========== RESPONSIVE ADJUSTMENTS ========== */
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 3rem 0 4rem;
+                text-align: center;
+            }
+            .hero-subtitle {
+                margin: 0 auto;
+            }
+            .hero-stats {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .btn-hero {
+                display: block;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .product-card .img-wrapper img {
+                max-height: 180px;
+            }
+            .contact-section {
+                padding: 1.5rem;
+                border-radius: 16px;
+            }
+            .btn-login-nav {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+        }
+        @media (max-width: 575px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .hero-stat-number {
+                font-size: 1.4rem;
+            }
+            .trust-item {
+                font-size: 0.8rem;
+                justify-content: flex-start;
+            }
+            .btn-add-cart {
+                font-size: 0.85rem;
+                padding: 0.55rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" aria-label="Navegação principal">
+            <div class="container">
+                <a class="navbar-brand" href="#home" aria-label="FutureTech - Página inicial">
+                    <span class="brand-icon">👨🏻‍💻🛍️</span> FutureTech
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home">🏠 Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#produtos">📦 Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contato">📞 Fale Conosco</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">❓ FAQ</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <button class="btn btn-login-nav d-flex align-items-center gap-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#login" aria-controls="login" aria-label="Abrir login">
+                                <i class="bi bi-person-circle"></i> <span class="d-none d-sm-inline">Login</span>
+                            </button>
+                        </li>
+                        <li class="nav-item ms-1">
+                            <a href="#" class="nav-link position-relative d-inline-block" aria-label="Ver carrinho de compras" data-bs-toggle="offcanvas" data-bs-target="#carrinhoOffcanvas" role="button" aria-controls="carrinhoOffcanvas">
+                                <i class="bi bi-cart3 fs-5"></i>
+                                <span class="cart-badge" id="cartCounter" aria-label="0 itens no carrinho">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== MAIN ==================== -->
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <span class="hero-badge">🔥 Ofertas Exclusivas da Semana</span>
+                        <h1 class="hero-title mb-3" id="hero-title">
+                            Tecnologia de ponta com <span class="highlight">preços imbatíveis</span>
+                        </h1>
+                        <p class="hero-subtitle mb-4">
+                            Smartphones, notebooks, TVs, consoles e muito mais com descontos de até <strong>25% OFF</strong>. Entrega rápida para todo o Brasil e parcelamento em até 12x sem juros.
+                        </p>
+                        <a href="#produtos" class="btn btn-hero btn-lg" aria-label="Ver ofertas de produtos">
+                            🛍️ Ver Ofertas Agora
+                        </a>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">+50k</span>
+                                <span class="hero-stat-label">Clientes Satisfeitos</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">4.9</span>
+                                <span class="hero-stat-label">Avaliação Média</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-number">Frete Grátis</span>
+                                <span class="hero-stat-label">Acima de R$299</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                        <div style="position:relative;z-index:1;">
+                            <svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="160" cy="160" r="150" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+                                <circle cx="160" cy="160" r="110" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" stroke-dasharray="8 8"/>
+                                <circle cx="160" cy="160" r="70" fill="rgba(79,70,229,0.2)" stroke="rgba(245,158,11,0.3)" stroke-width="2"/>
+                                <text x="160" y="155" text-anchor="middle" fill="white" font-size="36" font-weight="800" letter-spacing="-1">👨🏻‍💻🛍️</text>
+                                <text x="160" y="185" text-anchor="middle" fill="#FDE68A" font-size="14" font-weight="600" letter-spacing="2">FUTURETECH</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST STRIP -->
+        <div class="trust-strip" aria-label="Diferenciais da loja">
+            <div class="container">
+                <div class="row g-3 text-center text-md-start">
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <i class="bi bi-truck"></i>
+                            <span>Entrega Rápida</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>Garantia de 90 Dias</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <i class="bi bi-credit-card-2-front"></i>
+                            <span>Até 12x Sem Juros</span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <i class="bi bi-lock-fill"></i>
+                            <span>Pagamento 100% Seguro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCTS SECTION -->
+        <section id="produtos" class="py-5" aria-labelledby="produtos-title">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title" id="produtos-title">Nossos Produtos</h2>
+                    <p class="section-subtitle mx-auto mt-3">Os produtos mais inovadores da tecnologia selecionados especialmente para você com os melhores preços do mercado</p>
+                </div>
+                <div class="row g-4">
+                    <!-- Product Card 1 - Smartphone -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="1" data-product-name="Smartphone Samsung Galaxy A16" data-product-price="783.40" data-product-image="https://horizonplay.fbitsstatic.net/img/p/smartphone-samsung-galaxy-a16-sm-a165m-dual-sim-de-128gb-4gb-ram-de-6-7-50-5-2mp-13mp-light-gray-152478/339081.jpg?w=670&h=670&v=202501231555">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-best-seller">🏆 Mais Vendido</span>
+                                <img src="https://horizonplay.fbitsstatic.net/img/p/smartphone-samsung-galaxy-a16-sm-a165m-dual-sim-de-128gb-4gb-ram-de-6-7-50-5-2mp-13mp-light-gray-152478/339081.jpg?w=670&h=670&v=202501231555" class="card-img-top" alt="Smartphone Samsung Galaxy A16 na cor Light Gray" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★<span style="color:#CBD5E1;">★</span>
+                                    <span class="rating-count">(4.2 • 1.234 avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Smartphone Samsung Galaxy A16 SM-A165M Dual Sim de 128GB/4GB Ram de 6.7" 50+5+2MP/13MP - Light Gray</h3>
+                                <p class="product-price-old">de R$ 979,00</p>
+                                <p class="product-price">R$ 783,40</p>
+                                <p class="product-installments">ou 10x de R$ 78,34 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 3-5 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Product Card 2 - Notebook -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="2" data-product-name="Notebook Samsung Galaxy Book Go" data-product-price="2789.10" data-product-image="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTF6fMld_D76Q135TUOcxY_WT55fPdddpoz2CCiGW16uQ-2l4sKL_Lm_xfB4ng6LVjVs_negzHs_B8CIBebFWRwb944hF-o_VS5XSPoDG32-0N-1CF_nwsgCt_-OFv042NvxNtih0E9BWY&usqp=CAc">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-discount">⚡ 15% OFF</span>
+                                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTF6fMld_D76Q135TUOcxY_WT55fPdddpoz2CCiGW16uQ-2l4sKL_Lm_xfB4ng6LVjVs_negzHs_B8CIBebFWRwb944hF-o_VS5XSPoDG32-0N-1CF_nwsgCt_-OFv042NvxNtih0E9BWY&usqp=CAc" class="card-img-top" alt="Notebook Samsung Galaxy Book Go" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★★
+                                    <span class="rating-count">(4.8 • 856 avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Notebook Samsung Galaxy Book Go</h3>
+                                <p class="product-price-old">de R$ 3.281,00</p>
+                                <p class="product-price">R$ 2.789,10</p>
+                                <p class="product-installments">ou 12x de R$ 232,42 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 2-4 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Product Card 3 - Smartwatch -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="3" data-product-name="Bettdow SmartWatch" data-product-price="122.55" data-product-image="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSDHl7IGNN-c6VTKessWrzqLMX72WUH75_4E2bUFeJ4hO3MxTqA41mdZUwN_GTZT2Ot0Dv4WwpmY1N2ilcf4PkqiHlMtq92T5DcrvlVoA-Kic12PH2kKSZ5bWdzwJHIVbV1d8bzwg&usqp=CAc">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-new">🆕 Novidade</span>
+                                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSDHl7IGNN-c6VTKessWrzqLMX72WUH75_4E2bUFeJ4hO3MxTqA41mdZUwN_GTZT2Ot0Dv4WwpmY1N2ilcf4PkqiHlMtq92T5DcrvlVoA-Kic12PH2kKSZ5bWdzwJHIVbV1d8bzwg&usqp=CAc" class="card-img-top" alt="Bettdow SmartWatch feminino" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★<span style="color:#CBD5E1;">★</span>
+                                    <span class="rating-count">(4.0 • 423 avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Bettdow SmartWatch, relógio smartwatch feminino com 1.83" Ecrã tátil</h3>
+                                <p class="product-price-old">de R$ 159,90</p>
+                                <p class="product-price">R$ 122,55</p>
+                                <p class="product-installments">ou 3x de R$ 40,85 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 5-7 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Product Card 4 - TV -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="4" data-product-name="Smart TV LG 55\" 4K UHD" data-product-price="2499.00" data-product-image="https://m.media-amazon.com/images/I/51uf+lTcCyL._AC_SY300_SX300_QL70_ML2_.jpg">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-offer">⚡ Oferta do Dia</span>
+                                <img src="https://m.media-amazon.com/images/I/51uf+lTcCyL._AC_SY300_SX300_QL70_ML2_.jpg" class="card-img-top" alt="Smart TV LG 55 polegadas 4K" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★★
+                                    <span class="rating-count">(4.7 • 3.2k avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Smart TV LG 55" 4K UHD LED IPS Wi-Fi Bluetooth Alexa</h3>
+                                <p class="product-price-old">de R$ 2.999,00</p>
+                                <p class="product-price">R$ 2.499,00</p>
+                                <p class="product-installments">ou 12x de R$ 208,25 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 7-10 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Product Card 5 - PlayStation 5 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="5" data-product-name="Console PlayStation 5" data-product-price="3899.00" data-product-image="https://m.media-amazon.com/images/I/71PeCknZMRL._AC_SL1500_.jpg">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-new">🚀 Lançamento</span>
+                                <img src="https://m.media-amazon.com/images/I/71PeCknZMRL._AC_SL1500_.jpg" class="card-img-top" alt="Console PlayStation 5" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★★
+                                    <span class="rating-count">(4.9 • 1.5k avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Console Sony PlayStation 5 - SSD 825GB + Controle DualSense</h3>
+                                <p class="product-price-old">de R$ 4.499,00</p>
+                                <p class="product-price">R$ 3.899,00</p>
+                                <p class="product-installments">ou 10x de R$ 389,90 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 4-6 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Product Card 6 - Fone de Ouvido -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="product-card card h-100" data-product-id="6" data-product-name="Fone de Ouvido JBL Tune 720BT" data-product-price="349.90" data-product-image="https://m.media-amazon.com/images/I/61DFgTmj9xL._AC_SL1500_.jpg">
+                            <div class="img-wrapper">
+                                <span class="product-badge badge-best-seller">🎧 Top Vendas</span>
+                                <img src="https://m.media-amazon.com/images/I/61DFgTmj9xL._AC_SL1500_.jpg" class="card-img-top" alt="Fone de Ouvido Bluetooth JBL" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="product-rating">
+                                    ★★★★<span style="color:#CBD5E1;">★</span>
+                                    <span class="rating-count">(4.5 • 892 avaliações)</span>
+                                </div>
+                                <h3 class="card-title">Fone de Ouvido Bluetooth JBL Tune 720BT - Cancelamento de Ruído</h3>
+                                <p class="product-price-old">de R$ 429,90</p>
+                                <p class="product-price">R$ 349,90</p>
+                                <p class="product-installments">ou 5x de R$ 69,98 sem juros</p>
+                                <p class="product-delivery">🚚 <span class="free-shipping">Frete Grátis</span> • Entrega em 2-3 dias úteis</p>
+                                <button type="button" class="btn btn-add-cart add-to-cart-btn">Adicionar ao Carrinho</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contato" class="py-5" aria-labelledby="contato-title">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title" id="contato-title">Fale Conosco</h2>
+                    <p class="section-subtitle mx-auto mt-3">Tem dúvidas? Nossa equipe está pronta para ajudar você</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-section">
+                            <form action="#" method="POST" class="needs-validation" novalidate aria-label="Formulário de contato">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="contact-name" class="form-label">Nome Completo</label>
+                                        <input type="text" class="form-control" id="contact-name" placeholder="Seu nome" required autocomplete="name">
+                                        <div class="invalid-feedback">Por favor, informe seu nome.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contact-email" class="form-label">E-mail</label>
+                                        <input type="email" class="form-control" id="contact-email" placeholder="seu@email.com" required autocomplete="email">
+                                        <div class="invalid-feedback">Informe um e-mail válido.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contact-subject" class="form-label">Assunto</label>
+                                        <input type="text" class="form-control" id="contact-subject" placeholder="Como podemos ajudar?" required>
+                                        <div class="invalid-feedback">Informe o assunto da mensagem.</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contact-message" class="form-label">Mensagem</label>
+                                        <textarea class="form-control" id="contact-message" rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                                        <div class="invalid-feedback">Escreva sua mensagem.</div>
+                                    </div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-submit-contact">
+                                            <i class="bi bi-send-fill"></i> Enviar Mensagem
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-5 faq-section" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title" id="faq-title">Perguntas Frequentes</h2>
+                    <p class="section-subtitle mx-auto mt-3">Respostas rápidas para as dúvidas mais comuns</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion accordion-flush" id="accordionFAQ">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseOne" aria-expanded="false" aria-controls="faq-collapseOne">
+                                        📦 Qual é o prazo de entrega e como posso rastrear meu pedido?
+                                    </button>
+                                </h3>
+                                <div id="faq-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        O prazo de entrega varia de acordo com a sua região e a modalidade de frete escolhida no momento da compra. Assim que o seu pedido for faturado e enviado, você receberá um e-mail com o <strong>código de rastreio</strong> e o link da transportadora para acompanhar a entrega em tempo real.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseTwo" aria-expanded="false" aria-controls="faq-collapseTwo">
+                                        🛡️ Os produtos da FutureTech possuem garantia?
+                                    </button>
+                                </h3>
+                                <div id="faq-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        Sim! Todos os nossos produtos são 100% originais e contam com a <strong>garantia legal de 90 dias</strong> contra defeitos de fabricação. Além disso, muitos itens possuem garantia estendida direto com o fabricante (que pode variar de 1 a 2 anos). O termo de garantia e a nota fiscal são enviados junto com o produto.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseThree" aria-expanded="false" aria-controls="faq-collapseThree">
+                                        🔄 Como funciona a política de troca ou devolução?
+                                    </button>
+                                </h3>
+                                <div id="faq-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        Se você não ficou satisfeito ou o produto apresentou problemas, você tem até <strong>7 dias corridos</strong> após o recebimento para solicitar a devolução por arrependimento ou troca, conforme o Código de Defesa do Consumidor. O produto deve estar na embalagem original, sem marcas de uso e com todos os acessórios inclusos.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapseFour" aria-expanded="false" aria-controls="faq-collapseFour">
+                                        💳 Quais são as formas de pagamento aceitas?
+                                    </button>
+                                </h3>
+                                <div id="faq-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                                    <div class="accordion-body">
+                                        Aceitamos pagamento via <strong>Pix</strong> (com desconto exclusivo de 5%), <strong>Boleto Bancário</strong> e <strong>Cartão de Crédito</strong> em até 12x (com parcelamento sem juros em produtos selecionados). O processamento dos pagamentos é 100% seguro e criptografado com certificado SSL.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer" aria-label="Rodapé do site">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5>🖥️ FutureTech</h5>
+                    <p class="small">Sua loja de tecnologia de confiança desde 2018. Trabalhamos apenas com produtos originais e garantidos.</p>
+                    <div class="payment-icons mt-2">
+                        <span title="Pix">💠</span>
+                        <span title="Visa">💳</span>
+                        <span title="Mastercard">🟠</span>
+                        <span title="Boleto">📄</span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Links Úteis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Atendimento</h5>
+                    <ul class="list-unstyled small">
+                        <li>📧 suporte@techstore.com.br</li>
+                        <li>📞 (11) 99999-9999</li>
+                        <li>🕐 Seg-Sex: 8h às 20h</li>
+                        <li>🕐 Sáb: 9h às 14h</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Newsletter</h5>
+                    <p class="small">Receba ofertas exclusivas:</p>
+                    <form class="d-flex gap-1" action="#" method="POST">
+                        <input type="email" class="form-control form-control-sm rounded-pill" placeholder="seu@email.com" required aria-label="E-mail para newsletter">
+                        <button type="submit" class="btn btn-sm rounded-pill" style="background:#F59E0B;color:#1E293B;font-weight:600;white-space:nowrap;">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 FutureTech. Todos os direitos reservados. | <a href="#">Termos de Uso</a> | <a href="#">Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== OFFCANVAS - LOGIN ==================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="login" aria-labelledby="loginLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="loginLabel">🔐 Acesse sua Conta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <form action="#" method="POST" class="w-100" novalidate>
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label fw-semibold">E-mail</label>
+                    <input type="email" class="form-control" id="loginEmail" placeholder="seu@email.com" required autocomplete="email">
+                    <div class="invalid-feedback">Insira um e-mail válido.</div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between">
+                        <label for="loginPassword" class="form-label fw-semibold">Senha</label>
+                        <a href="#" class="text-decoration-none small" style="color:var(--tech-primary);">Esqueceu a senha?</a>
+                    </div>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Sua senha" required autocomplete="current-password">
+                    <div class="invalid-feedback">Informe sua senha.</div>
+                </div>
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label small text-muted" for="rememberMe">Lembrar de mim neste dispositivo</label>
+                </div>
+                <button type="button" class="btn btn-primary w-100 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                    <i class="bi bi-box-arrow-in-right"></i> Entrar
+                </button>
+            </form>
+            <div class="text-center border-top pt-3 mt-4">
+                <span class="text-muted small">Não tem uma conta?</span>
+                <a class="text-decoration-none small fw-bold" data-bs-toggle="offcanvas" href="#cadastro" role="button" aria-controls="cadastro" style="color:var(--tech-primary);">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== OFFCANVAS - CADASTRO ==================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cadastro" aria-labelledby="cadastroLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="fw-bold" id="cadastroLabel">✨ Crie sua Conta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <form class="needs-validation w-100" novalidate>
+                <div class="mb-3">
+                    <label for="reg-nome" class="form-label fw-semibold">Nome Completo</label>
+                    <input type="text" id="reg-nome" class="form-control" placeholder="Ex: João Silva" required autocomplete="name">
+                    <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-email" class="form-label fw-semibold">E-mail</label>
+                    <input type="email" id="reg-email" class="form-control" placeholder="nome@exemplo.com" required autocomplete="email">
+                    <div class="invalid-feedback">Insira um e-mail válido.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-password" class="form-label fw-semibold">Senha</label>
+                    <input type="password" id="reg-password" class="form-control" placeholder="No mínimo 6 caracteres" required autocomplete="new-password" minlength="6">
+                    <div class="form-text">Use letras, números e caracteres especiais.</div>
+                    <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="reg-password-confirm" class="form-label fw-semibold">Confirmar Senha</label>
+                    <input type="password" id="reg-password-confirm" class="form-control" placeholder="Repita a senha" required autocomplete="new-password">
+                    <div class="invalid-feedback">As senhas devem coincidir.</div>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="reg-termos" required>
+                    <label class="form-check-label small text-muted" for="reg-termos">
+                        Li e aceito os <a href="#" class="text-decoration-none" style="color:var(--tech-primary);">Termos de Uso</a> e <a href="#" class="text-decoration-none" style="color:var(--tech-primary);">Política de Privacidade</a>.
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary w-100 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#modalCadastro">
+                    <i class="bi bi-person-plus-fill"></i> Finalizar Cadastro
+                </button>
+            </form>
+            <div class="text-center border-top pt-3 mt-4">
+                <span class="text-muted small">Já tem uma conta?</span>
+                <a class="text-decoration-none small fw-bold" data-bs-toggle="offcanvas" href="#login" role="button" aria-controls="login" style="color:var(--tech-primary);">Faça login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== OFFCANVAS - CARRINHO ==================== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="carrinhoOffcanvas" aria-labelledby="carrinhoOffcanvasLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title fw-bold" id="carrinhoOffcanvasLabel">🛒 Seu Carrinho</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cartItemsContainer" class="flex-grow-1">
+                <!-- Itens serão inseridos dinamicamente via JavaScript -->
+            </div>
+            <div class="border-top pt-3 mt-3" id="cartFooter" style="display: none;">
+                <div class="d-flex justify-content-between fw-bold mb-2">
+                    <span>Total:</span>
+                    <span id="cartTotal" class="text-primary">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary w-100 py-2 fw-bold" onclick="alert('Finalizar compra em desenvolvimento!')">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body pt-4">
+                    <span style="font-size:3rem;">✅</span>
+                    <p class="mt-3" id="modalLoginLabel">Logado com sucesso!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Acessar Plataforma</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body pt-4">
+                    <span style="font-size:3rem;">🎉</span>
+                    <p class="mt-3" id="modalCadastroLabel">Cadastrado com sucesso!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Acessar Plataforma</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST ==================== -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" aria-live="polite" aria-atomic="true">
+        <div id="liveToast" class="toast toast-custom" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="3000">
+            <div class="toast-header">
+                <span class="me-2">🛒</span>
+                <strong class="me-auto">Carrinho Atualizado</strong>
+                <small class="text-muted">agora mesmo</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar notificação"></button>
+            </div>
+            <div class="toast-body">
+                ✅ Produto adicionado ao carrinho com sucesso!
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+    <script>
+        (function() {
+            // Estado do carrinho
+            let cartItems = [];
+
+            // Elementos do DOM
+            const toastLiveExample = document.getElementById('liveToast');
+            const cartCounter = document.getElementById('cartCounter');
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const cartFooter = document.getElementById('cartFooter');
+            const cartTotal = document.getElementById('cartTotal');
+
+            // Instância do Toast
+            const toastBootstrap = toastLiveExample ? bootstrap.Toast.getOrCreateInstance(toastLiveExample) : null;
+
+            // Função para atualizar a UI do carrinho
+            function updateCartUI() {
+                const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+                if (cartCounter) {
+                    cartCounter.textContent = totalItems;
+                }
+
+                if (!cartItemsContainer) return;
+
+                // Limpa o container
+                cartItemsContainer.innerHTML = '';
+
+                if (cartItems.length === 0) {
+                    cartItemsContainer.innerHTML = `
+                        <div class="cart-empty">
+                            <i class="bi bi-cart-x" style="font-size: 3rem; color: #CBD5E1;"></i>
+                            <p class="mt-3 fw-semibold">Seu carrinho está vazio</p>
+                            <p class="text-muted small">Adicione produtos para continuar comprando.</p>
+                        </div>
+                    `;
+                    if (cartFooter) cartFooter.style.display = 'none';
+                    return;
+                }
+
+                let totalPrice = 0;
+
+                cartItems.forEach((item, index) => {
+                    totalPrice += item.price * item.quantity;
+
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item d-flex align-items-center gap-3';
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img flex-shrink-0">
+                        <div class="flex-grow-1 min-width-0">
+                            <p class="mb-1 fw-semibold small text-truncate" style="max-width: 180px;">${item.name}</p>
+                            <p class="mb-0 text-muted" style="font-size: 0.8rem;">R$ ${item.price.toFixed(2)}</p>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <button class="btn btn-sm btn-outline-secondary py-0 px-2 quantity-decrease" data-index="${index}" style="font-size: 0.75rem;">−</button>
+                                <span class="small fw-bold">${item.quantity}</span>
+                                <button class="btn btn-sm btn-outline-secondary py-0 px-2 quantity-increase" data-index="${index}" style="font-size: 0.75rem;">+</button>
+                            </div>
+                        </div>
+                        <button class="btn-remove-item ms-auto" data-index="${index}" aria-label="Remover item">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                // Atualiza total
+                if (cartTotal) cartTotal.textContent = `R$ ${totalPrice.toFixed(2)}`;
+                if (cartFooter) cartFooter.style.display = 'block';
+            }
+
+            // Função para adicionar item ao carrinho
+            function addToCart(productCard) {
+                const name = productCard.dataset.productName;
+                const price = parseFloat(productCard.dataset.productPrice);
+                const image = productCard.dataset.productImage;
+
+                if (!name || isNaN(price)) return;
+
+                // Verifica se item já existe
+                const existingIndex = cartItems.findIndex(item => item.name === name);
+                if (existingIndex > -1) {
+                    cartItems[existingIndex].quantity += 1;
+                } else {
+                    cartItems.push({
+                        name,
+                        price,
+                        image,
+                        quantity: 1
+                    });
+                }
+
+                updateCartUI();
+
+                // Mostra toast
+                if (toastBootstrap) {
+                    const timeSmall = toastLiveExample.querySelector('small');
+                    if (timeSmall) timeSmall.textContent = 'agora mesmo';
+                    toastBootstrap.show();
+                }
+
+                // Animação do badge
+                if (cartCounter) {
+                    cartCounter.style.animation = 'none';
+                    cartCounter.offsetHeight; // trigger reflow
+                    cartCounter.style.animation = 'pulse-badge 0.4s ease-in-out';
+                }
+            }
+
+            // Event delegation para os botões do carrinho
+            document.addEventListener('click', function(e) {
+                // Adicionar ao carrinho (botões nos cards)
+                if (e.target.closest('.add-to-cart-btn')) {
+                    const button = e.target.closest('.add-to-cart-btn');
+                    const productCard = button.closest('.product-card');
+                    if (productCard) {
+                        addToCart(productCard);
+                    }
+                }
+
+                // Remover item do carrinho
+                if (e.target.closest('.btn-remove-item')) {
+                    const index = e.target.closest('.btn-remove-item').dataset.index;
+                    if (index !== undefined) {
+                        cartItems.splice(parseInt(index), 1);
+                        updateCartUI();
+                    }
+                }
+
+                // Aumentar quantidade
+                if (e.target.closest('.quantity-increase')) {
+                    const index = e.target.closest('.quantity-increase').dataset.index;
+                    if (index !== undefined && cartItems[parseInt(index)]) {
+                        cartItems[parseInt(index)].quantity += 1;
+                        updateCartUI();
+                    }
+                }
+
+                // Diminuir quantidade
+                if (e.target.closest('.quantity-decrease')) {
+                    const index = e.target.closest('.quantity-decrease').dataset.index;
+                    if (index !== undefined && cartItems[parseInt(index)]) {
+                        if (cartItems[parseInt(index)].quantity > 1) {
+                            cartItems[parseInt(index)].quantity -= 1;
+                        } else {
+                            cartItems.splice(parseInt(index), 1);
+                        }
+                        updateCartUI();
+                    }
+                }
+            });
+
+            // Inicialização
+            document.addEventListener('DOMContentLoaded', function() {
+                updateCartUI();
+
+                // Tooltips
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
+
+                // Validação de formulários
+                const forms = document.querySelectorAll('.needs-validation');
+                forms.forEach(form => {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
